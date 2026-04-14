@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroCampus from "@/assets/hero-campus.jpg";
-import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({

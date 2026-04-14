@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import logo from "@/assets/logo.png";
-import { Phone, Mail, Facebook, Twitter, Instagram, Menu, X, ChevronDown } from "lucide-react";
+import { Phone, Mail, Menu, X, ChevronDown } from "lucide-react";
+import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
 
 const departments = [
   { name: "Building & Civil Engineering", path: "/departments" },
