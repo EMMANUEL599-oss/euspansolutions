@@ -87,13 +87,13 @@ function ContactPage() {
                 <h3 className="font-heading text-base font-semibold text-foreground mb-3">Follow Us</h3>
                 <div className="flex gap-3">
                   <a href="https://www.facebook.com/share/1YBqCRvmma/" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 transition-colors">
-                    <Facebook className="h-5 w-5 text-primary" />
+                    <FacebookIcon className="h-5 w-5 text-primary" />
                   </a>
                   <a href="https://x.com/MaasaiPoly" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 transition-colors">
-                    <Twitter className="h-5 w-5 text-primary" />
+                    <TwitterIcon className="h-5 w-5 text-primary" />
                   </a>
                   <a href="https://www.instagram.com/maasaipoly" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 transition-colors">
-                    <Instagram className="h-5 w-5 text-primary" />
+                    <InstagramIcon className="h-5 w-5 text-primary" />
                   </a>
                 </div>
               </div>

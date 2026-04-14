@@ -64,13 +64,13 @@ export function Footer() {
             </ul>
             <div className="mt-5 flex gap-3">
               <a href="https://www.facebook.com/share/1YBqCRvmma/" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 transition-colors">
-                <Facebook className="h-4 w-4" />
+                <FacebookIcon className="h-4 w-4" />
               </a>
               <a href="https://x.com/MaasaiPoly" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 transition-colors">
-                <Twitter className="h-4 w-4" />
+                <TwitterIcon className="h-4 w-4" />
               </a>
               <a href="https://www.instagram.com/maasaipoly" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 transition-colors">
-                <Instagram className="h-4 w-4" />
+                <InstagramIcon className="h-4 w-4" />
               </a>
             </div>
           </div>

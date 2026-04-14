@@ -41,13 +41,13 @@ export function Header() {
           </div>
           <div className="flex items-center gap-3">
             <a href="https://www.facebook.com/share/1YBqCRvmma/" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
-              <Facebook className="h-4 w-4" />
+              <FacebookIcon className="h-4 w-4" />
             </a>
             <a href="https://x.com/MaasaiPoly" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
-              <Twitter className="h-4 w-4" />
+              <TwitterIcon className="h-4 w-4" />
             </a>
             <a href="https://www.instagram.com/maasaipoly" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
-              <Instagram className="h-4 w-4" />
+              <InstagramIcon className="h-4 w-4" />
             </a>
           </div>
         </div>
