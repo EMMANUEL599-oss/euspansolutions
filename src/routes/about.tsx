@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import principalImg from "@/assets/principal.jpg";
 import heroCampus from "@/assets/hero-campus.jpg";
 import { Target, Eye, Heart, Lightbulb, Star, Shield, Zap, CheckCircle2, Users, BookOpen } from "lucide-react";
@@ -6,22 +6,22 @@ import { Target, Eye, Heart, Lightbulb, Star, Shield, Zap, CheckCircle2, Users, 
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us — Maasai National Polytechnic" },
-      { name: "description", content: "Learn about Maasai National Polytechnic — a premier TVET institution established in 1986, empowering youth with skills for life." },
-      { property: "og:title", content: "About Us — Maasai National Polytechnic" },
-      { property: "og:description", content: "Premier TVET institution empowering youth since 1986." },
+      { title: "About Us — Euspan Solutions" },
+      { name: "description", content: "Learn about Euspan Solutions — a leading tech company delivering innovative software, cloud, and AI solutions." },
+      { property: "og:title", content: "About Us — Euspan Solutions" },
+      { property: "og:description", content: "Leading tech company delivering innovative solutions." },
     ],
   }),
   component: AboutPage,
 });
 
 const coreValues = [
-  { icon: Heart, label: "Care & Concern", desc: "Compassionate approach to education and community." },
-  { icon: Lightbulb, label: "Innovation & Creativity", desc: "Fostering new ideas and creative problem-solving." },
-  { icon: Star, label: "Excellence", desc: "Commitment to the highest standards in everything we do." },
-  { icon: Shield, label: "Self-discipline", desc: "Building character and personal responsibility." },
-  { icon: Zap, label: "Purposeful & Motivated", desc: "Driven by purpose and passion for education." },
-  { icon: CheckCircle2, label: "Integrity", desc: "Honesty and ethical conduct in all operations." },
+  { icon: Heart, label: "Client-Centric", desc: "We put our clients at the center of everything we do." },
+  { icon: Lightbulb, label: "Innovation", desc: "Continuously pushing boundaries with creative solutions." },
+  { icon: Star, label: "Excellence", desc: "Committed to the highest standards in every project." },
+  { icon: Shield, label: "Security First", desc: "Protecting data and systems is our top priority." },
+  { icon: Zap, label: "Agility", desc: "Rapid delivery and adaptability to changing needs." },
+  { icon: CheckCircle2, label: "Integrity", desc: "Transparency and honesty in all our dealings." },
 ];
 
 function AboutPage() {
@@ -29,47 +29,47 @@ function AboutPage() {
     <div>
       {/* Hero */}
       <section className="relative h-64 sm:h-80 flex items-center justify-center overflow-hidden">
-        <img src={heroCampus} alt="Campus" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
+        <img src={heroCampus} alt="Euspan Solutions" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-hero opacity-85" />
         <div className="relative z-10 text-center px-4">
           <h1 className="font-heading text-4xl font-bold text-primary-foreground sm:text-5xl">About Us</h1>
-          <p className="mt-3 text-primary-foreground/80 text-lg">Empowering Knowledge Since 1986</p>
+          <p className="mt-3 text-primary-foreground/80 text-lg">Innovation Driven, Results Focused</p>
         </div>
       </section>
 
-      {/* History */}
+      {/* Story */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <div>
               <p className="text-sm font-semibold uppercase tracking-widest text-primary">Our Story</p>
-              <h2 className="mt-2 font-heading text-3xl font-bold text-foreground">A Legacy of Excellence</h2>
+              <h2 className="mt-2 font-heading text-3xl font-bold text-foreground">Building the Future of Technology</h2>
               <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                The Maasai National Polytechnic, established in 1986, is a premier government public Technical Vocational Education and Training (TVET) institution under the Ministry of Education. Our mission is to provide Competency-Based Education and Training (CBET) programs that equip the youth with relevant skills aligned with industry requirements, fostering economic growth and development.
+                Euspan Solutions was founded with a vision to bridge the gap between business challenges and technology solutions. As a tech company rooted in innovation, we specialize in delivering custom software, cloud infrastructure, cybersecurity, and AI-powered solutions.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Nestled between Kajiado town and the county headquarters, our serene and learner-friendly environment nurtures creativity and innovation. With six academic departments and a team of qualified experts, we offer courses in Mechanical Engineering, Building & Civil Engineering, Business & Liberal Studies, ICT, Hospitality & Institutional Management, and Electrical & Electronics Engineering.
+                Our team of experienced engineers, data scientists, and consultants brings deep expertise across multiple technology domains. We work closely with businesses — from startups to enterprises — helping them leverage technology to drive operational efficiency, reduce costs, and unlock new revenue streams.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Maasai National Polytechnic is the successor to the Masai Technical Training Institute (MTTI). Since inception, the Polytechnic has produced numerous skilled and professional technicians whose utility in various sectors in the country is remarkable.
+                Based in Nairobi, Kenya, we serve clients across Africa and beyond, building long-term partnerships founded on trust, transparency, and measurable results.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-xl bg-primary/5 border border-primary/10 p-6 text-center">
-                <p className="font-heading text-3xl font-bold text-primary">1986</p>
-                <p className="mt-1 text-sm text-muted-foreground">Established</p>
+                <p className="font-heading text-3xl font-bold text-primary">50+</p>
+                <p className="mt-1 text-sm text-muted-foreground">Clients Served</p>
               </div>
               <div className="rounded-xl bg-primary/5 border border-primary/10 p-6 text-center">
                 <Users className="h-8 w-8 text-primary mx-auto" />
-                <p className="mt-2 text-sm text-muted-foreground">6 Departments</p>
+                <p className="mt-2 text-sm text-muted-foreground">Expert Team</p>
               </div>
               <div className="rounded-xl bg-primary/5 border border-primary/10 p-6 text-center">
                 <BookOpen className="h-8 w-8 text-primary mx-auto" />
-                <p className="mt-2 text-sm text-muted-foreground">CBET Programs</p>
+                <p className="mt-2 text-sm text-muted-foreground">6 Service Lines</p>
               </div>
               <div className="rounded-xl bg-primary/5 border border-primary/10 p-6 text-center">
-                <p className="font-heading text-3xl font-bold text-primary">TVET</p>
-                <p className="mt-1 text-sm text-muted-foreground">Institution</p>
+                <p className="font-heading text-3xl font-bold text-primary">100+</p>
+                <p className="mt-1 text-sm text-muted-foreground">Projects Delivered</p>
               </div>
             </div>
           </div>
@@ -88,7 +88,7 @@ function AboutPage() {
                 <h2 className="font-heading text-2xl font-bold text-foreground">Our Mission</h2>
               </div>
               <p className="text-base leading-relaxed text-muted-foreground">
-                Empowering and inspiring our trainees with skills for life to serve in the communities distinctively with a high degree of mastery.
+                To empower businesses with innovative, scalable, and secure technology solutions that drive growth, efficiency, and competitive advantage in the digital era.
               </p>
             </div>
             <div className="rounded-2xl bg-card border border-border p-8 shadow-card">
@@ -99,7 +99,7 @@ function AboutPage() {
                 <h2 className="font-heading text-2xl font-bold text-foreground">Our Vision</h2>
               </div>
               <p className="text-base leading-relaxed text-muted-foreground">
-                Empowered and inspired graduates with high degree of mastery serving the communities with distinction.
+                To be Africa's most trusted technology partner, leading digital transformation and enabling businesses to thrive in an increasingly connected world.
               </p>
             </div>
           </div>
@@ -124,29 +124,29 @@ function AboutPage() {
               </div>
             ))}
           </div>
-          <div className="mt-12 rounded-2xl bg-gradient-maroon p-8 text-center">
-            <p className="text-xs uppercase tracking-widest text-maroon-foreground/70">Our Motto</p>
-            <p className="mt-3 font-heading text-3xl font-bold italic text-maroon-foreground">"Skills for Life"</p>
+          <div className="mt-12 rounded-2xl bg-gradient-blue p-8 text-center">
+            <p className="text-xs uppercase tracking-widest text-primary-foreground/70">Our Tagline</p>
+            <p className="mt-3 font-heading text-3xl font-bold italic text-primary-foreground">"Innovation. Solutions. Growth."</p>
           </div>
         </div>
       </section>
 
-      {/* Principal */}
+      {/* CEO */}
       <section className="bg-warm-bg py-20">
         <div className="mx-auto max-w-4xl px-4">
           <div className="rounded-2xl bg-card border border-border p-8 shadow-card">
             <p className="text-sm font-semibold uppercase tracking-widest text-primary">Leadership</p>
-            <h2 className="mt-2 font-heading text-3xl font-bold text-foreground">The Principal</h2>
+            <h2 className="mt-2 font-heading text-3xl font-bold text-foreground">The CEO</h2>
             <div className="mt-8 flex flex-col sm:flex-row gap-8">
-              <img src={principalImg} alt="Dr. Rosebella Chukwu" className="h-56 w-44 rounded-xl object-cover shadow-sm shrink-0" loading="lazy" width={176} height={224} />
+              <img src={principalImg} alt="CEO, Euspan Solutions" className="h-56 w-44 rounded-xl object-cover shadow-sm shrink-0" loading="lazy" width={176} height={224} />
               <div>
-                <h3 className="font-heading text-xl font-semibold text-foreground">Dr. Rosebella Chukwu</h3>
-                <p className="text-sm text-primary font-medium">Principal, Maasai National Polytechnic</p>
+                <h3 className="font-heading text-xl font-semibold text-foreground">Founder & CEO</h3>
+                <p className="text-sm text-primary font-medium">Euspan Solutions</p>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                  It is with great pleasure that I welcome you to the Maasai National Polytechnic, where we are dedicated to nurturing excellence and fostering a supportive community. Whether you are joining us for the first time or returning for another year, we are excited to embark on this journey together.
+                  With a passion for technology and a vision for innovation, our CEO founded Euspan Solutions to help businesses navigate the complexities of digital transformation. Under their leadership, the company has grown to serve clients across multiple industries and countries.
                 </p>
                 <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                  The Polytechnic has made tremendous progress in CBET Implementation by aligning its curriculum and assessment methods to the competency-based approach. We have established several linkages and collaborations with industries for DUAL-TVET training, preparing students for the dynamic demands of the job market.
+                  Their commitment to excellence, client success, and continuous innovation drives the company's culture and strategic direction, ensuring Euspan Solutions remains at the forefront of technology.
                 </p>
               </div>
             </div>
