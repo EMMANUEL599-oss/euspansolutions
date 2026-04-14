@@ -5,19 +5,19 @@ import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIco
 
 export function Footer() {
   return (
-    <footer className="bg-secondary text-secondary-foreground">
+    <footer className="bg-primary text-primary-foreground">
       <div className="mx-auto max-w-7xl px-4 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="MAANP Logo" className="h-12 w-12" width={48} height={48} loading="lazy" />
+              <img src={logo} alt="Euspan Solutions Logo" className="h-12 w-12 object-contain" width={48} height={48} loading="lazy" />
               <div>
-                <h3 className="font-heading text-lg font-bold">Maasai National Polytechnic</h3>
+                <h3 className="font-heading text-lg font-bold">Euspan Solutions</h3>
               </div>
             </div>
             <p className="text-sm leading-relaxed opacity-80">
-              A premier government public TVET institution under the Ministry of Education, empowering youth with industry-relevant skills since 1986.
+              A leading tech company delivering innovative software development, cloud solutions, and IT consulting services to businesses worldwide.
             </p>
           </div>
 
@@ -27,21 +27,21 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/" className="opacity-80 hover:opacity-100 transition-opacity">Home</Link></li>
               <li><Link to="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</Link></li>
-              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Departments</Link></li>
+              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Services</Link></li>
               <li><Link to="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact Us</Link></li>
             </ul>
           </div>
 
-          {/* Departments */}
+          {/* Services */}
           <div>
-            <h4 className="mb-4 font-heading text-base font-semibold">Departments</h4>
+            <h4 className="mb-4 font-heading text-base font-semibold">Services</h4>
             <ul className="space-y-2.5 text-sm">
-              <li className="opacity-80">Building & Civil Engineering</li>
-              <li className="opacity-80">Business & Liberal Studies</li>
-              <li className="opacity-80">Electrical & Electronics</li>
-              <li className="opacity-80">Hospitality & Tourism</li>
-              <li className="opacity-80">Information Technology</li>
-              <li className="opacity-80">Mechanical Engineering</li>
+              <li className="opacity-80">Software Development</li>
+              <li className="opacity-80">Cloud Solutions</li>
+              <li className="opacity-80">IT Consulting</li>
+              <li className="opacity-80">Cybersecurity</li>
+              <li className="opacity-80">Data Analytics</li>
+              <li className="opacity-80">AI & Machine Learning</li>
             </ul>
           </div>
 
@@ -51,34 +51,34 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 opacity-80" />
-                <span className="opacity-80">Kajiado Town, Kajiado County, Kenya</span>
+                <span className="opacity-80">Nairobi, Kenya</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 shrink-0 opacity-80" />
-                <a href="tel:0723433333" className="opacity-80 hover:opacity-100 transition-opacity">0723 433 333</a>
+                <a href="tel:+254700000000" className="opacity-80 hover:opacity-100 transition-opacity">+254 700 000 000</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 opacity-80" />
-                <a href="mailto:info@maanp.ac.ke" className="opacity-80 hover:opacity-100 transition-opacity">info@maanp.ac.ke</a>
+                <a href="mailto:info@euspansolutions.com" className="opacity-80 hover:opacity-100 transition-opacity">info@euspansolutions.com</a>
               </li>
             </ul>
             <div className="mt-5 flex gap-3">
-              <a href="https://www.facebook.com/share/1YBqCRvmma/" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 transition-colors">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <FacebookIcon className="h-4 w-4" />
               </a>
-              <a href="https://x.com/MaasaiPoly" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 transition-colors">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <TwitterIcon className="h-4 w-4" />
               </a>
-              <a href="https://www.instagram.com/maasaipoly" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-secondary-foreground/10 hover:bg-secondary-foreground/20 transition-colors">
+              <a href="#" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <InstagramIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="border-t border-secondary-foreground/10">
+      <div className="border-t border-primary-foreground/10">
         <div className="mx-auto max-w-7xl px-4 py-5 text-center text-xs opacity-60">
-          © {new Date().getFullYear()} Maasai National Polytechnic. All rights reserved.
+          © {new Date().getFullYear()} Euspan Solutions. All rights reserved.
         </div>
       </div>
     </footer>
