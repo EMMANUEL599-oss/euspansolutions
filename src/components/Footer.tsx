@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Smartphone } from "lucide-react";
 import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
 
 export function Footer() {
@@ -17,7 +17,7 @@ export function Footer() {
               </div>
             </div>
             <p className="text-sm leading-relaxed opacity-80">
-              A leading tech company delivering innovative software development, cloud solutions, and IT consulting services to businesses worldwide.
+              A Kenyan tech startup providing ICT and digital solutions, including technology services, products, and certified digital training programs — empowering individuals to succeed in the digital economy.
             </p>
           </div>
 
@@ -27,8 +27,9 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm">
               <li><Link to="/" className="opacity-80 hover:opacity-100 transition-opacity">Home</Link></li>
               <li><Link to="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</Link></li>
-              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Services</Link></li>
+              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Services & Training</Link></li>
               <li><Link to="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact Us</Link></li>
+              <li><Link to="/support" className="opacity-80 hover:opacity-100 transition-opacity">Support Us</Link></li>
             </ul>
           </div>
 
@@ -36,12 +37,12 @@ export function Footer() {
           <div>
             <h4 className="mb-4 font-heading text-base font-semibold">Services</h4>
             <ul className="space-y-2.5 text-sm">
+              <li className="opacity-80">ICT Consultancy</li>
               <li className="opacity-80">Software Development</li>
-              <li className="opacity-80">Cloud Solutions</li>
-              <li className="opacity-80">IT Consulting</li>
+              <li className="opacity-80">AI Solutions</li>
+              <li className="opacity-80">Digital Training Programs</li>
+              <li className="opacity-80">Cloud Services</li>
               <li className="opacity-80">Cybersecurity</li>
-              <li className="opacity-80">Data Analytics</li>
-              <li className="opacity-80">AI & Machine Learning</li>
             </ul>
           </div>
 
@@ -51,15 +52,19 @@ export function Footer() {
             <ul className="space-y-3 text-sm">
               <li className="flex items-start gap-2.5">
                 <MapPin className="h-4 w-4 mt-0.5 shrink-0 opacity-80" />
-                <span className="opacity-80">Nairobi, Kenya</span>
+                <span className="opacity-80">Kenya</span>
               </li>
               <li className="flex items-center gap-2.5">
                 <Phone className="h-4 w-4 shrink-0 opacity-80" />
-                <a href="tel:+254700000000" className="opacity-80 hover:opacity-100 transition-opacity">+254 700 000 000</a>
+                <a href="tel:0769722940" className="opacity-80 hover:opacity-100 transition-opacity">0769722940</a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Smartphone className="h-4 w-4 shrink-0 opacity-80" />
+                <a href="https://wa.me/254769722940" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">WhatsApp</a>
               </li>
               <li className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 shrink-0 opacity-80" />
-                <a href="mailto:info@euspansolutions.com" className="opacity-80 hover:opacity-100 transition-opacity">info@euspansolutions.com</a>
+                <a href="mailto:infoeuspansolutions@gmail.com" className="opacity-80 hover:opacity-100 transition-opacity">infoeuspansolutions@gmail.com</a>
               </li>
             </ul>
             <div className="mt-5 flex gap-3">
