@@ -8,49 +8,62 @@ import principalImg from "@/assets/principal.jpg";
 import {
   Code, Cloud, Shield, BarChart3, Brain, Cpu,
   Target, Eye, Heart, Star, Lightbulb, Zap,
-  Calendar, ArrowRight, CheckCircle2, Users,
+  ArrowRight, CheckCircle2, Users, GraduationCap,
+  Smartphone, Monitor, Briefcase, Wrench, ShoppingCart,
+  Globe, TrendingUp, Award,
 } from "lucide-react";
 import { AnimatedSection, StaggerChildren } from "@/hooks/use-scroll-animation";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Euspan Solutions — Innovative Tech Solutions" },
-      { name: "description", content: "Euspan Solutions is a leading tech company offering software development, cloud solutions, IT consulting, cybersecurity, and AI services." },
-      { property: "og:title", content: "Euspan Solutions — Innovative Tech Solutions" },
-      { property: "og:description", content: "Empowering businesses with cutting-edge technology solutions." },
+      { title: "Euspan Solutions — ICT & Digital Solutions | Kenya" },
+      { name: "description", content: "Euspan Solutions is a Kenyan tech startup providing ICT consultancy, digital solutions, software development, AI solutions, and certified digital training programs." },
+      { property: "og:title", content: "Euspan Solutions — ICT & Digital Solutions" },
+      { property: "og:description", content: "Empowering individuals and businesses with technology services, products, and certified digital training programs." },
     ],
   }),
   component: HomePage,
 });
 
 const quickLinks = [
+  { icon: Briefcase, label: "ICT Consultancy", href: "/departments" },
   { icon: Code, label: "Software Dev", href: "/departments" },
-  { icon: Cloud, label: "Cloud Solutions", href: "/departments" },
-  { icon: Shield, label: "Cybersecurity", href: "/departments" },
-  { icon: BarChart3, label: "Data Analytics", href: "/departments" },
-  { icon: Brain, label: "AI & ML", href: "/departments" },
+  { icon: Cloud, label: "Cloud Services", href: "/departments" },
+  { icon: Brain, label: "AI Solutions", href: "/departments" },
+  { icon: GraduationCap, label: "Digital Training", href: "/departments" },
 ];
 
 const coreValues = [
-  { icon: Heart, label: "Client-Centric" },
+  { icon: Heart, label: "Empowerment" },
   { icon: Lightbulb, label: "Innovation" },
   { icon: Star, label: "Excellence" },
-  { icon: Shield, label: "Security First" },
-  { icon: Zap, label: "Agility" },
+  { icon: Users, label: "Community" },
+  { icon: Zap, label: "Impact" },
   { icon: CheckCircle2, label: "Integrity" },
 ];
 
 const services = [
-  { name: "Software Development", desc: "Custom web, mobile, and enterprise applications built with modern technologies to solve real business challenges.", img: deptElectrical },
-  { name: "Cloud Solutions", desc: "Scalable cloud infrastructure, migration, and management services to accelerate your digital transformation.", img: deptBusiness },
-  { name: "IT Consulting", desc: "Strategic technology advisory to help businesses optimize operations and drive growth through innovation.", img: deptHospitality },
-  { name: "AI & Machine Learning", desc: "Intelligent automation, predictive analytics, and machine learning solutions to unlock data-driven insights.", img: deptIt },
+  { name: "ICT Consultancy & Digital Solutions", desc: "Technology services and digital solutions for business, education, and agriculture — helping organizations leverage technology for growth.", img: deptElectrical },
+  { name: "Software & App Development", desc: "Custom software development, mobile & web applications, systems, and e-commerce solutions built to solve real-world challenges.", img: deptBusiness },
+  { name: "AI & Cybersecurity Solutions", desc: "Artificial intelligence solutions and cybersecurity services to protect your business and unlock intelligent automation.", img: deptHospitality },
+  { name: "Digital Training & Mentorship", desc: "Certified technology & digital skills programs, freelancing preparation, AI & robotics courses, and tech career coaching for all ages.", img: deptIt },
 ];
 
-const news = [
-  { title: "New AI Partnership Announced", desc: "Euspan Solutions partners with leading AI platforms to deliver next-gen intelligent solutions.", date: "Q1 2026" },
-  { title: "Cloud Migration Success", desc: "Successfully migrated 50+ enterprise clients to modern cloud infrastructure this quarter.", date: "Q1 2026" },
+const impactStats = [
+  { value: "100+", label: "Youth & Community Members Trained" },
+  { value: "50+", label: "Businesses & Institutions Served" },
+  { value: "20+", label: "Tech Talents Mentored" },
+  { value: "10+", label: "Training Programs Delivered" },
+];
+
+const gaps = [
+  "Limited access to technology services and ICT consultations",
+  "Lack of modern digital tools and equipment for learning and work",
+  "Few digital solutions that support personal and community growth",
+  "Limited digital training programs and certifications",
+  "Low awareness of freelancing and online opportunities",
+  "Insufficient support for innovation and entrepreneurship",
 ];
 
 function HomePage() {
@@ -71,7 +84,10 @@ function HomePage() {
           </AnimatedSection>
           <AnimatedSection animation="fade-up" delay={400}>
             <p className="mt-4 text-lg text-primary-foreground/90 sm:text-xl">
-              Innovative Technology · Transformative Results
+              ICT & Digital Solutions · Training · Empowerment
+            </p>
+            <p className="mt-2 text-base text-primary-foreground/70 max-w-2xl mx-auto">
+              A Kenyan tech startup tackling unemployment while nurturing tech careers and talents, empowering individuals to succeed in the digital economy.
             </p>
           </AnimatedSection>
           <AnimatedSection animation="fade-up" delay={600}>
@@ -83,10 +99,10 @@ function HomePage() {
                 Get Started <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
-                to="/departments"
+                to="/support"
                 className="inline-flex items-center gap-2 rounded-lg border-2 border-primary-foreground/30 px-8 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/10 transition-all"
               >
-                Our Services
+                Support Us
               </Link>
             </div>
           </AnimatedSection>
@@ -117,11 +133,11 @@ function HomePage() {
       <section className="mt-8 overflow-hidden bg-primary py-3">
         <div className="flex items-center">
           <span className="shrink-0 bg-secondary px-4 py-1 text-xs font-bold uppercase tracking-wider text-secondary-foreground">
-            Latest News
+            Latest
           </span>
           <div className="overflow-hidden whitespace-nowrap ml-4">
             <span className="animate-ticker inline-block text-sm text-primary-foreground">
-              🚀 New AI & ML services launched! &nbsp;&nbsp;|&nbsp;&nbsp; ☁️ 50+ successful cloud migrations this quarter &nbsp;&nbsp;|&nbsp;&nbsp; 🔒 ISO 27001 certified cybersecurity solutions
+              🚀 Digital Training Programs Now Open! &nbsp;&nbsp;|&nbsp;&nbsp; 💡 AI & Robotics Courses for All Ages &nbsp;&nbsp;|&nbsp;&nbsp; 🌍 Empowering Tech Talents Across Kenya &nbsp;&nbsp;|&nbsp;&nbsp; 📱 Call 0769722940 to Get Started
             </span>
           </div>
         </div>
@@ -133,15 +149,15 @@ function HomePage() {
           <div className="grid gap-12 lg:grid-cols-2">
             <AnimatedSection animation="fade-left">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary">About Us</p>
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary">Who We Are</p>
                 <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-                  Driving Digital Transformation
+                  Digital Empowerment & Community Transformation
                 </h2>
                 <p className="mt-6 text-base leading-relaxed text-muted-foreground">
-                  Euspan Solutions is a forward-thinking tech company specializing in innovative software development, cloud infrastructure, and IT consulting. We partner with businesses of all sizes to deliver scalable, secure, and cutting-edge technology solutions that drive growth and efficiency.
+                  Euspan Solutions is a Kenyan tech startup providing ICT and digital solutions, including technology services, products, and certified digital training programs. We tackle unemployment while nurturing tech careers and talents, empowering individuals to succeed in the digital economy.
                 </p>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                  With a team of skilled engineers, data scientists, and consultants, we bring deep expertise across multiple technology domains. From startups to enterprises, we help organizations harness the power of technology to transform their operations.
+                  Our programs are delivered through virtual platforms and in-person sessions, reaching as many people as possible while adapting to different learning environments.
                 </p>
 
                 <div className="mt-8 grid grid-cols-2 gap-6">
@@ -151,7 +167,7 @@ function HomePage() {
                       <h3 className="font-heading text-base font-semibold">Mission</h3>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      To empower businesses with innovative technology solutions that drive growth, efficiency, and competitive advantage.
+                      To empower individuals and communities with practical digital skills, innovative technology solutions, and mentorship for the digital economy.
                     </p>
                   </div>
                   <div className="rounded-xl border border-border bg-card p-5">
@@ -160,7 +176,7 @@ function HomePage() {
                       <h3 className="font-heading text-base font-semibold">Vision</h3>
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      To be the leading technology partner for businesses seeking digital transformation across Africa and beyond.
+                      To establish a leading digital training academy and tech hub, equipping individuals for real-world tech challenges and innovation.
                     </p>
                   </div>
                 </div>
@@ -189,7 +205,7 @@ function HomePage() {
                 <div className="mt-6 rounded-xl bg-gradient-blue p-6 text-center">
                   <p className="text-xs uppercase tracking-widest text-primary-foreground/70">Our Tagline</p>
                   <p className="mt-2 font-heading text-2xl font-bold italic text-primary-foreground">
-                    "Innovation. Solutions. Growth."
+                    "Empowering Digital Futures"
                   </p>
                 </div>
               </div>
@@ -202,12 +218,12 @@ function HomePage() {
       <section className="bg-warm-bg py-20">
         <div className="mx-auto max-w-7xl px-4">
           <AnimatedSection animation="fade-up" className="text-center mb-12">
-            <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Do</p>
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">What We Offer</p>
             <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-              Our Services
+              Services, Products & Trainings
             </h2>
             <p className="mt-3 mx-auto max-w-2xl text-muted-foreground">
-              End-to-end technology solutions tailored to your business needs.
+              Comprehensive ICT and digital solutions tailored for businesses, education, agriculture, and communities.
             </p>
           </AnimatedSection>
 
@@ -238,48 +254,87 @@ function HomePage() {
         </div>
       </section>
 
-      {/* News & CEO */}
+      {/* Impact Stats */}
+      <section className="py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <AnimatedSection animation="fade-up" className="text-center mb-12">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Our Impact</p>
+            <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              Making a Difference
+            </h2>
+          </AnimatedSection>
+          <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+            <StaggerChildren staggerDelay={100} animation="scale">
+              {impactStats.map((stat) => (
+                <div key={stat.label} className="rounded-xl bg-primary/5 border border-primary/10 p-6 text-center">
+                  <p className="font-heading text-3xl font-bold text-primary">{stat.value}</p>
+                  <p className="mt-2 text-sm text-muted-foreground">{stat.label}</p>
+                </div>
+              ))}
+            </StaggerChildren>
+          </div>
+        </div>
+      </section>
+
+      {/* Addressing Gaps */}
+      <section className="bg-warm-bg py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid gap-12 lg:grid-cols-2 items-center">
+            <AnimatedSection animation="fade-left">
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary">Why We Exist</p>
+                <h2 className="mt-2 font-heading text-3xl font-bold text-foreground">Addressing Gaps in Society</h2>
+                <p className="mt-4 text-muted-foreground">
+                  By addressing these critical gaps, Euspan Solutions empowers people and tech talents with the skills, knowledge, and tools they need to grow their careers, create opportunities, and make a meaningful impact.
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection animation="fade-right" delay={200}>
+              <div className="space-y-3">
+                {gaps.map((gap, i) => (
+                  <div key={i} className="flex items-start gap-3 rounded-lg bg-card border border-border p-4">
+                    <CheckCircle2 className="h-5 w-5 text-primary shrink-0 mt-0.5" />
+                    <p className="text-sm text-muted-foreground">{gap}</p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
+      {/* Future Vision & Founder */}
       <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-12 lg:grid-cols-2">
             <AnimatedSection animation="fade-left">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-widest text-primary">Stay Updated</p>
-                <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
-                  Latest News
+              <div className="rounded-2xl bg-gradient-blue p-8">
+                <p className="text-xs uppercase tracking-widest text-primary-foreground/70">Future Vision</p>
+                <h2 className="mt-2 font-heading text-2xl font-bold text-primary-foreground">
+                  Digital Training Academy
                 </h2>
-                <div className="mt-8 space-y-4">
-                  {news.map((e, i) => (
-                    <AnimatedSection key={e.title} animation="fade-up" delay={i * 150}>
-                      <div className="rounded-xl border border-border bg-card p-6 hover:shadow-card transition-shadow">
-                        <div className="flex items-start gap-4">
-                          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 shrink-0">
-                            <Calendar className="h-6 w-6 text-primary" />
-                          </div>
-                          <div>
-                            <p className="text-xs font-semibold uppercase tracking-wide text-primary">{e.date}</p>
-                            <h3 className="mt-1 font-heading text-lg font-semibold text-foreground">{e.title}</h3>
-                            <p className="mt-1.5 text-sm text-muted-foreground">{e.desc}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </AnimatedSection>
-                  ))}
-                </div>
+                <p className="mt-4 text-sm leading-relaxed text-primary-foreground/80">
+                  We aim to establish a physical digital training academy — a hub where individuals can access dedicated training spaces, computers and modern digital equipment, structured technology courses, innovation and entrepreneurship programs, and mentorship and career development support.
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-primary-foreground/80">
+                  This center will provide hands-on learning, structured programs, and opportunities for innovation, equipping individuals for real-world tech challenges.
+                </p>
+                <Link to="/support" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-primary-foreground/20 px-6 py-2.5 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/30 transition-colors">
+                  Help Us Build This <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
             </AnimatedSection>
 
-            {/* CEO Message */}
             <AnimatedSection animation="fade-right" delay={200}>
               <div className="rounded-2xl bg-card border border-border p-8 shadow-card">
                 <p className="text-sm font-semibold uppercase tracking-widest text-primary">Leadership</p>
                 <h2 className="mt-2 font-heading text-2xl font-bold text-foreground">
-                  CEO's Message
+                  Founder's Message
                 </h2>
                 <div className="mt-6 flex flex-col sm:flex-row gap-6">
                   <img
                     src={principalImg}
-                    alt="CEO, Euspan Solutions"
+                    alt="Founder, Euspan Solutions"
                     className="h-48 w-36 rounded-xl object-cover shadow-sm shrink-0"
                     loading="lazy"
                     width={144}
@@ -287,14 +342,14 @@ function HomePage() {
                   />
                   <div>
                     <p className="text-sm leading-relaxed text-muted-foreground">
-                      At Euspan Solutions, we believe technology is the catalyst for meaningful change. Our commitment is to deliver solutions that not only meet today's demands but anticipate tomorrow's challenges. We partner with our clients to build a future powered by innovation.
+                      At Euspan Solutions, we believe technology is the catalyst for meaningful change. We are committed to empowering individuals with practical digital skills, providing innovative technology solutions, and bridging critical gaps in our communities.
                     </p>
                     <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-                      With a growing team of talented professionals and expanding partnerships across the continent, we are poised to lead the next wave of digital transformation in Africa and beyond.
+                      With the right support, we will reach more people, train more tech talents, deliver more technology services, and create greater impact in society. Together, we can empower digital futures.
                     </p>
                     <div className="mt-4">
-                      <p className="font-heading text-base font-semibold text-foreground">The CEO</p>
-                      <p className="text-xs text-muted-foreground">Founder & Chief Executive Officer</p>
+                      <p className="font-heading text-base font-semibold text-foreground">The Founder</p>
+                      <p className="text-xs text-muted-foreground">Founder & CEO, Euspan Solutions</p>
                     </div>
                   </div>
                 </div>
@@ -309,17 +364,25 @@ function HomePage() {
         <section className="bg-gradient-hero py-16">
           <div className="mx-auto max-w-4xl px-4 text-center">
             <h2 className="font-heading text-3xl font-bold text-primary-foreground sm:text-4xl">
-              Ready to Transform Your Business?
+              Support Euspan Solutions Today
             </h2>
             <p className="mt-4 text-lg text-primary-foreground/80">
-              Let's build something extraordinary together. Get in touch for a free consultation.
+              Your support will help us train more people, support tech talents, deliver technology services, and create more opportunities in the digital economy.
             </p>
-            <Link
-              to="/contact"
-              className="mt-8 inline-flex items-center gap-2 rounded-lg bg-secondary px-8 py-4 text-base font-semibold text-secondary-foreground shadow-lg hover:bg-secondary/90 transition-all"
-            >
-              Get a Free Consultation <ArrowRight className="h-5 w-5" />
-            </Link>
+            <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+              <Link
+                to="/support"
+                className="inline-flex items-center gap-2 rounded-lg bg-secondary px-8 py-4 text-base font-semibold text-secondary-foreground shadow-lg hover:bg-secondary/90 transition-all"
+              >
+                Support Us <ArrowRight className="h-5 w-5" />
+              </Link>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 rounded-lg border-2 border-primary-foreground/30 px-8 py-4 text-base font-semibold text-primary-foreground hover:bg-primary-foreground/10 transition-all"
+              >
+                Contact Us
+              </Link>
+            </div>
           </div>
         </section>
       </AnimatedSection>

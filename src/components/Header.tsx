@@ -4,19 +4,19 @@ import logo from "@/assets/logo.png";
 import { Phone, Mail, Menu, X, ChevronDown } from "lucide-react";
 import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
 
-const services = [
+const serviceLinks = [
+  { name: "ICT Consultancy", path: "/departments" },
   { name: "Software Development", path: "/departments" },
-  { name: "Cloud Solutions", path: "/departments" },
-  { name: "IT Consulting", path: "/departments" },
+  { name: "AI Solutions", path: "/departments" },
+  { name: "Cloud Services", path: "/departments" },
   { name: "Cybersecurity", path: "/departments" },
-  { name: "Data Analytics", path: "/departments" },
-  { name: "AI & Machine Learning", path: "/departments" },
+  { name: "Digital Training", path: "/departments" },
 ];
 
 const aboutLinks = [
-  { name: "Our Team", path: "/about" },
   { name: "Our Story", path: "/about" },
-  { name: "Careers", path: "/about" },
+  { name: "Our Impact", path: "/about" },
+  { name: "Core Values", path: "/about" },
 ];
 
 export function Header() {
@@ -30,13 +30,13 @@ export function Header() {
       <div className="bg-primary">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 text-sm text-primary-foreground">
           <div className="flex items-center gap-4">
-            <a href="tel:+254700000000" className="flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
+            <a href="tel:0769722940" className="flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
               <Phone className="h-3.5 w-3.5" />
-              <span>+254 700 000 000</span>
+              <span>0769722940</span>
             </a>
-            <a href="mailto:info@euspansolutions.com" className="flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
+            <a href="mailto:infoeuspansolutions@gmail.com" className="flex items-center gap-1.5 opacity-90 hover:opacity-100 transition-opacity">
               <Mail className="h-3.5 w-3.5" />
-              <span>info@euspansolutions.com</span>
+              <span>infoeuspansolutions@gmail.com</span>
             </a>
           </div>
           <div className="flex items-center gap-3">
@@ -62,7 +62,7 @@ export function Header() {
               <h1 className="text-lg font-bold leading-tight text-foreground font-heading">
                 Euspan Solutions
               </h1>
-              <p className="text-xs text-muted-foreground">Tech Company</p>
+              <p className="text-xs text-muted-foreground">ICT & Digital Solutions</p>
             </div>
           </Link>
 
@@ -93,7 +93,7 @@ export function Header() {
               </Link>
               {servicesOpen && (
                 <div className="absolute left-0 top-full z-50 w-64 rounded-lg border border-border bg-card p-2 shadow-lg">
-                  {services.map((d) => (
+                  {serviceLinks.map((d) => (
                     <Link key={d.name} to={d.path} className="block rounded-md px-3 py-2 text-sm text-foreground hover:bg-muted hover:text-primary transition-colors">
                       {d.name}
                     </Link>
@@ -107,10 +107,10 @@ export function Header() {
             </Link>
 
             <Link
-              to="/contact"
+              to="/support"
               className="ml-2 inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
             >
-              Get a Quote
+              Support Us
             </Link>
           </div>
 
@@ -128,14 +128,14 @@ export function Header() {
           <div className="lg:hidden border-t border-border bg-card px-4 pb-4 pt-2 space-y-1">
             <Link to="/" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Home</Link>
             <Link to="/about" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>About Us</Link>
-            <Link to="/departments" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Services</Link>
+            <Link to="/departments" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Services & Training</Link>
             <Link to="/contact" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Contact Us</Link>
             <Link
-              to="/contact"
+              to="/support"
               className="block rounded-lg bg-primary px-3 py-2.5 text-center text-sm font-semibold text-primary-foreground"
               onClick={() => setMobileOpen(false)}
             >
-              Get a Quote
+              Support Us
             </Link>
           </div>
         )}

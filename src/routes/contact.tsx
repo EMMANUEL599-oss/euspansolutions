@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import heroCampus from "@/assets/hero-campus.jpg";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageCircle } from "lucide-react";
 import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
 
@@ -8,9 +8,9 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact Us — Euspan Solutions" },
-      { name: "description", content: "Get in touch with Euspan Solutions. We're here to help with your technology needs." },
+      { name: "description", content: "Get in touch with Euspan Solutions. Call 0769722940 or email infoeuspansolutions@gmail.com for ICT services, training, and consultations." },
       { property: "og:title", content: "Contact Us — Euspan Solutions" },
-      { property: "og:description", content: "Reach out for a free consultation on your tech project." },
+      { property: "og:description", content: "Reach out for ICT consultancy, digital training, or technology solutions." },
     ],
   }),
   component: ContactPage,
@@ -40,27 +40,17 @@ function ContactPage() {
                 <p className="text-sm font-semibold uppercase tracking-widest text-primary">Get in Touch</p>
                 <h2 className="mt-2 font-heading text-3xl font-bold text-foreground">Contact Information</h2>
                 <p className="mt-4 text-muted-foreground">
-                  Have a project in mind or need a consultation? Reach out to us through any of the channels below.
+                  Have a project in mind, need a consultation, or want to enroll in our training programs? Reach out to us through any of the channels below.
                 </p>
 
                 <div className="mt-8 space-y-6">
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
-                      <MapPin className="h-6 w-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-heading text-base font-semibold text-foreground">Location</h3>
-                      <p className="mt-1 text-sm text-muted-foreground">Nairobi, Kenya</p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
                       <Phone className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="font-heading text-base font-semibold text-foreground">Phone</h3>
-                      <a href="tel:+254700000000" className="mt-1 text-sm text-primary hover:underline">+254 700 000 000</a>
+                      <h3 className="font-heading text-base font-semibold text-foreground">Phone / WhatsApp</h3>
+                      <a href="tel:0769722940" className="mt-1 text-sm text-primary hover:underline block">0769722940</a>
                     </div>
                   </div>
 
@@ -70,7 +60,28 @@ function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-heading text-base font-semibold text-foreground">Email</h3>
-                      <a href="mailto:info@euspansolutions.com" className="mt-1 text-sm text-primary hover:underline">info@euspansolutions.com</a>
+                      <a href="mailto:infoeuspansolutions@gmail.com" className="mt-1 text-sm text-primary hover:underline block">infoeuspansolutions@gmail.com</a>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
+                      <MapPin className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-base font-semibold text-foreground">Location</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">Kenya</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 shrink-0">
+                      <MessageCircle className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-heading text-base font-semibold text-foreground">M-Pesa Paybill</h3>
+                      <p className="mt-1 text-sm text-muted-foreground">Paybill: <strong className="text-foreground">303030</strong></p>
+                      <p className="text-sm text-muted-foreground">Account: <strong className="text-foreground">2044855111</strong></p>
                     </div>
                   </div>
 
@@ -87,7 +98,7 @@ function ContactPage() {
                 </div>
 
                 <div className="mt-8">
-                  <h3 className="font-heading text-base font-semibold text-foreground mb-3">Follow Us</h3>
+                  <h3 className="font-heading text-base font-semibold text-foreground mb-3">Follow & Connect</h3>
                   <div className="flex gap-3">
                     <a href="#" target="_blank" rel="noopener noreferrer" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 hover:bg-primary/20 transition-colors">
                       <FacebookIcon className="h-5 w-5 text-primary" />
@@ -122,23 +133,29 @@ function ContactPage() {
                   </div>
                   <div>
                     <label className="text-sm font-medium text-foreground">Phone Number</label>
-                    <input type="tel" placeholder="+254 7XX XXX XXX" className="mt-1.5 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-ring" />
+                    <input type="tel" placeholder="07XX XXX XXX" className="mt-1.5 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-ring" />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-foreground">Service Interested In</label>
+                    <label className="text-sm font-medium text-foreground">Service / Interest</label>
                     <select className="mt-1.5 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-ring">
+                      <option>ICT Consultancy</option>
                       <option>Software Development</option>
-                      <option>Cloud Solutions</option>
-                      <option>IT Consulting</option>
+                      <option>AI Solutions</option>
+                      <option>Cloud Services</option>
                       <option>Cybersecurity</option>
-                      <option>Data Analytics</option>
-                      <option>AI & Machine Learning</option>
+                      <option>Mobile & Web Apps</option>
+                      <option>Digital Training Programs</option>
+                      <option>Freelancing Training</option>
+                      <option>ICT Equipment & Supply</option>
+                      <option>E-commerce Solutions</option>
+                      <option>IT Support & Maintenance</option>
+                      <option>Career Coaching</option>
                       <option>Other</option>
                     </select>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-foreground">Project Details</label>
-                    <textarea rows={5} placeholder="Tell us about your project..." className="mt-1.5 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-ring resize-none" />
+                    <label className="text-sm font-medium text-foreground">Message</label>
+                    <textarea rows={5} placeholder="Tell us about your project or training interest..." className="mt-1.5 w-full rounded-lg border border-input bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-ring resize-none" />
                   </div>
                   <button type="submit" className="w-full rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors">
                     Send Message
