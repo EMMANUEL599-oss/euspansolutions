@@ -265,6 +265,7 @@ function BlogPage() {
               ) : (
                 <StaggerChildren staggerDelay={100}>
                   <div className="space-y-6">
+                    <span className="hidden" />
                     {(activeCategory === "All" && searchQuery === "" ? blogPosts.filter(p => !p.featured) : filteredPosts).map((post) => (
                       <article
                         key={post.id}
