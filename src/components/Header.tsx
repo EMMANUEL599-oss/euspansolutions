@@ -106,6 +106,10 @@ export function Header() {
               Contact Us
             </Link>
 
+            <Link to="/blog" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-muted">
+              Blog
+            </Link>
+
             <Link
               to="/support"
               className="ml-2 inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
