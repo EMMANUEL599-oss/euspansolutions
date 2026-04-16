@@ -106,6 +106,10 @@ export function Header() {
               Contact Us
             </Link>
 
+            <Link to="/blog" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-muted">
+              Blog
+            </Link>
+
             <Link
               to="/support"
               className="ml-2 inline-flex items-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 transition-colors"
@@ -130,6 +134,7 @@ export function Header() {
             <Link to="/about" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>About Us</Link>
             <Link to="/departments" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Services & Training</Link>
             <Link to="/contact" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+            <Link to="/blog" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Blog</Link>
             <Link
               to="/support"
               className="block rounded-lg bg-primary px-3 py-2.5 text-center text-sm font-semibold text-primary-foreground"
