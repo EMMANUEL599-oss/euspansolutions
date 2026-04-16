@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import logo from "@/assets/logo.png";
-import { Phone, Mail, MapPin, Smartphone } from "lucide-react";
+import euspanLogo from "@/assets/euspan-logo.jpg";
+import { Phone, Mail, MapPin, Smartphone, Download } from "lucide-react";
 import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
 
 export function Footer() {
@@ -11,7 +11,7 @@ export function Footer() {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Euspan Solutions Logo" className="h-12 w-12 object-contain" width={48} height={48} loading="lazy" />
+              <img src={euspanLogo} alt="Euspan Solutions Logo" className="h-12 w-12 rounded-full object-cover" width={48} height={48} loading="lazy" />
               <div>
                 <h3 className="font-heading text-lg font-bold">Euspan Solutions</h3>
               </div>
@@ -19,6 +19,13 @@ export function Footer() {
             <p className="text-sm leading-relaxed opacity-80">
               A Kenyan tech startup providing ICT and digital solutions, including technology services, products, and certified digital training programs — empowering individuals to succeed in the digital economy.
             </p>
+            <a
+              href="/euspan-brochure.pdf"
+              download
+              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary-foreground/10 px-4 py-2 text-xs font-semibold hover:bg-primary-foreground/20 transition-colors"
+            >
+              <Download className="h-3.5 w-3.5" /> Download Brochure
+            </a>
           </div>
 
           {/* Quick Links */}
@@ -28,8 +35,10 @@ export function Footer() {
               <li><Link to="/" className="opacity-80 hover:opacity-100 transition-opacity">Home</Link></li>
               <li><Link to="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</Link></li>
               <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Services & Training</Link></li>
-              <li><Link to="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact Us</Link></li>
+              <li><Link to="/programs" className="opacity-80 hover:opacity-100 transition-opacity">Programs & Digital Club</Link></li>
+              <li><Link to="/student/register" className="opacity-80 hover:opacity-100 transition-opacity">Student Registration</Link></li>
               <li><Link to="/blog" className="opacity-80 hover:opacity-100 transition-opacity">Blog</Link></li>
+              <li><Link to="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact Us</Link></li>
               <li><Link to="/support" className="opacity-80 hover:opacity-100 transition-opacity">Support Us</Link></li>
             </ul>
           </div>
