@@ -263,12 +263,10 @@ function BlogPage() {
                   <p className="mt-1 text-sm text-muted-foreground">Try adjusting your search or category filter.</p>
                 </div>
               ) : (
-                <StaggerChildren staggerDelay={100}>
-                  <div className="space-y-6">
-                    <span className="hidden" />
-                    {(activeCategory === "All" && searchQuery === "" ? blogPosts.filter(p => !p.featured) : filteredPosts).map((post) => (
+                <div className="space-y-6">
+                    {(activeCategory === "All" && searchQuery === "" ? blogPosts.filter(p => !p.featured) : filteredPosts).map((post, idx) => (
+                      <AnimatedSection key={post.id} animation="fade-up" delay={idx * 100}>
                       <article
-                        key={post.id}
                         className="group flex flex-col sm:flex-row gap-5 rounded-xl border border-border bg-card p-4 shadow-card hover:shadow-lg transition-all duration-300"
                       >
                         <div className="sm:w-64 sm:flex-shrink-0 overflow-hidden rounded-lg">
@@ -310,9 +308,9 @@ function BlogPage() {
                           </div>
                         </div>
                       </article>
+                      </AnimatedSection>
                     ))}
                   </div>
-                </StaggerChildren>
               )}
             </div>
 
