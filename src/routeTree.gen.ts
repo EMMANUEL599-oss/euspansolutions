@@ -15,9 +15,16 @@ import { Route as DepartmentsRouteImport } from './routes/departments'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as StudentRouteImport } from './routes/_student'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StudentRegisterRouteImport } from './routes/student/register'
 import { Route as StudentLoginRouteImport } from './routes/student/login'
+import { Route as StudentStudentProfileRouteImport } from './routes/_student/student.profile'
+import { Route as StudentStudentNotificationsRouteImport } from './routes/_student/student.notifications'
+import { Route as StudentStudentEarningsRouteImport } from './routes/_student/student.earnings'
+import { Route as StudentStudentDashboardRouteImport } from './routes/_student/student.dashboard'
+import { Route as StudentStudentBrowseRouteImport } from './routes/_student/student.browse'
+import { Route as StudentStudentApplyRouteImport } from './routes/_student/student.apply'
 
 const SupportRoute = SupportRouteImport.update({
   id: '/support',
@@ -49,6 +56,10 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudentRoute = StudentRouteImport.update({
+  id: '/_student',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -64,6 +75,37 @@ const StudentLoginRoute = StudentLoginRouteImport.update({
   path: '/student/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudentStudentProfileRoute = StudentStudentProfileRouteImport.update({
+  id: '/student/profile',
+  path: '/student/profile',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentStudentNotificationsRoute =
+  StudentStudentNotificationsRouteImport.update({
+    id: '/student/notifications',
+    path: '/student/notifications',
+    getParentRoute: () => StudentRoute,
+  } as any)
+const StudentStudentEarningsRoute = StudentStudentEarningsRouteImport.update({
+  id: '/student/earnings',
+  path: '/student/earnings',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentStudentDashboardRoute = StudentStudentDashboardRouteImport.update({
+  id: '/student/dashboard',
+  path: '/student/dashboard',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentStudentBrowseRoute = StudentStudentBrowseRouteImport.update({
+  id: '/student/browse',
+  path: '/student/browse',
+  getParentRoute: () => StudentRoute,
+} as any)
+const StudentStudentApplyRoute = StudentStudentApplyRouteImport.update({
+  id: '/student/apply',
+  path: '/student/apply',
+  getParentRoute: () => StudentRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -75,6 +117,12 @@ export interface FileRoutesByFullPath {
   '/support': typeof SupportRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
+  '/student/apply': typeof StudentStudentApplyRoute
+  '/student/browse': typeof StudentStudentBrowseRoute
+  '/student/dashboard': typeof StudentStudentDashboardRoute
+  '/student/earnings': typeof StudentStudentEarningsRoute
+  '/student/notifications': typeof StudentStudentNotificationsRoute
+  '/student/profile': typeof StudentStudentProfileRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -86,10 +134,17 @@ export interface FileRoutesByTo {
   '/support': typeof SupportRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
+  '/student/apply': typeof StudentStudentApplyRoute
+  '/student/browse': typeof StudentStudentBrowseRoute
+  '/student/dashboard': typeof StudentStudentDashboardRoute
+  '/student/earnings': typeof StudentStudentEarningsRoute
+  '/student/notifications': typeof StudentStudentNotificationsRoute
+  '/student/profile': typeof StudentStudentProfileRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_student': typeof StudentRouteWithChildren
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
@@ -98,6 +153,12 @@ export interface FileRoutesById {
   '/support': typeof SupportRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
+  '/_student/student/apply': typeof StudentStudentApplyRoute
+  '/_student/student/browse': typeof StudentStudentBrowseRoute
+  '/_student/student/dashboard': typeof StudentStudentDashboardRoute
+  '/_student/student/earnings': typeof StudentStudentEarningsRoute
+  '/_student/student/notifications': typeof StudentStudentNotificationsRoute
+  '/_student/student/profile': typeof StudentStudentProfileRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -111,6 +172,12 @@ export interface FileRouteTypes {
     | '/support'
     | '/student/login'
     | '/student/register'
+    | '/student/apply'
+    | '/student/browse'
+    | '/student/dashboard'
+    | '/student/earnings'
+    | '/student/notifications'
+    | '/student/profile'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -122,9 +189,16 @@ export interface FileRouteTypes {
     | '/support'
     | '/student/login'
     | '/student/register'
+    | '/student/apply'
+    | '/student/browse'
+    | '/student/dashboard'
+    | '/student/earnings'
+    | '/student/notifications'
+    | '/student/profile'
   id:
     | '__root__'
     | '/'
+    | '/_student'
     | '/about'
     | '/blog'
     | '/contact'
@@ -133,10 +207,17 @@ export interface FileRouteTypes {
     | '/support'
     | '/student/login'
     | '/student/register'
+    | '/_student/student/apply'
+    | '/_student/student/browse'
+    | '/_student/student/dashboard'
+    | '/_student/student/earnings'
+    | '/_student/student/notifications'
+    | '/_student/student/profile'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  StudentRoute: typeof StudentRouteWithChildren
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
@@ -191,6 +272,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_student': {
+      id: '/_student'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof StudentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -212,11 +300,75 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudentLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_student/student/profile': {
+      id: '/_student/student/profile'
+      path: '/student/profile'
+      fullPath: '/student/profile'
+      preLoaderRoute: typeof StudentStudentProfileRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/student/notifications': {
+      id: '/_student/student/notifications'
+      path: '/student/notifications'
+      fullPath: '/student/notifications'
+      preLoaderRoute: typeof StudentStudentNotificationsRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/student/earnings': {
+      id: '/_student/student/earnings'
+      path: '/student/earnings'
+      fullPath: '/student/earnings'
+      preLoaderRoute: typeof StudentStudentEarningsRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/student/dashboard': {
+      id: '/_student/student/dashboard'
+      path: '/student/dashboard'
+      fullPath: '/student/dashboard'
+      preLoaderRoute: typeof StudentStudentDashboardRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/student/browse': {
+      id: '/_student/student/browse'
+      path: '/student/browse'
+      fullPath: '/student/browse'
+      preLoaderRoute: typeof StudentStudentBrowseRouteImport
+      parentRoute: typeof StudentRoute
+    }
+    '/_student/student/apply': {
+      id: '/_student/student/apply'
+      path: '/student/apply'
+      fullPath: '/student/apply'
+      preLoaderRoute: typeof StudentStudentApplyRouteImport
+      parentRoute: typeof StudentRoute
+    }
   }
 }
 
+interface StudentRouteChildren {
+  StudentStudentApplyRoute: typeof StudentStudentApplyRoute
+  StudentStudentBrowseRoute: typeof StudentStudentBrowseRoute
+  StudentStudentDashboardRoute: typeof StudentStudentDashboardRoute
+  StudentStudentEarningsRoute: typeof StudentStudentEarningsRoute
+  StudentStudentNotificationsRoute: typeof StudentStudentNotificationsRoute
+  StudentStudentProfileRoute: typeof StudentStudentProfileRoute
+}
+
+const StudentRouteChildren: StudentRouteChildren = {
+  StudentStudentApplyRoute: StudentStudentApplyRoute,
+  StudentStudentBrowseRoute: StudentStudentBrowseRoute,
+  StudentStudentDashboardRoute: StudentStudentDashboardRoute,
+  StudentStudentEarningsRoute: StudentStudentEarningsRoute,
+  StudentStudentNotificationsRoute: StudentStudentNotificationsRoute,
+  StudentStudentProfileRoute: StudentStudentProfileRoute,
+}
+
+const StudentRouteWithChildren =
+  StudentRoute._addFileChildren(StudentRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  StudentRoute: StudentRouteWithChildren,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,

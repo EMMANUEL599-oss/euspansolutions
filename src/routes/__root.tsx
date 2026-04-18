@@ -1,4 +1,4 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute, HeadContent, Scripts, useLocation } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ChatBot } from "@/components/ChatBot";
@@ -71,6 +71,17 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  const location = useLocation();
+  // Hide marketing chrome on student portal & auth pages — those have their own layout
+  const isPortal = location.pathname.startsWith("/student");
+  if (isPortal) {
+    return (
+      <>
+        <Outlet />
+        <ChatBot />
+      </>
+    );
+  }
   return (
     <>
       <Header />

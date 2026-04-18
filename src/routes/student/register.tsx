@@ -1,9 +1,9 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import euspanLogo from "@/assets/euspan-logo.jpg";
 import {
-  GraduationCap, CheckCircle2, User, Mail, Phone, BookOpen,
+  GraduationCap, CheckCircle2, User, Mail, Phone, BookOpen, Lock,
   School, MessageSquare, ArrowRight, Users,
 } from "lucide-react";
 import { AnimatedSection } from "@/hooks/use-scroll-animation";
@@ -30,14 +30,10 @@ const courses = [
 ];
 
 function StudentRegisterPage() {
+  const navigate = useNavigate();
   const [form, setForm] = useState({
-    full_name: "",
-    email: "",
-    phone: "",
-    course_interest: "",
-    institution: "",
-    age_group: "",
-    message: "",
+    full_name: "", email: "", password: "", phone: "",
+    course_interest: "", institution: "", age_group: "", message: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -45,32 +41,45 @@ function StudentRegisterPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
+    setLoading(true); setError("");
 
-    if (!form.full_name || !form.email || !form.phone) {
-      setError("Please fill in all required fields.");
-      setLoading(false);
-      return;
+    if (!form.full_name || !form.email || !form.password || !form.phone) {
+      setError("Please fill in all required fields."); setLoading(false); return;
+    }
+    if (form.password.length < 6) {
+      setError("Password must be at least 6 characters."); setLoading(false); return;
     }
 
-    const { error: dbError } = await supabase.from("students").insert({
-      full_name: form.full_name.trim(),
+    const { error: signUpError } = await supabase.auth.signUp({
       email: form.email.trim(),
-      phone: form.phone.trim(),
-      course_interest: form.course_interest || null,
-      institution: form.institution || null,
-      age_group: form.age_group || null,
-      message: form.message || null,
+      password: form.password,
+      options: {
+        emailRedirectTo: `${window.location.origin}/student/dashboard`,
+        data: {
+          full_name: form.full_name.trim(),
+          phone: form.phone.trim(),
+          institution: form.institution || null,
+          age_group: form.age_group || null,
+          course_interest: form.course_interest || null,
+        },
+      },
     });
 
-    if (dbError) {
-      setError("Registration failed. Please try again.");
-      console.error(dbError);
-    } else {
-      setSuccess(true);
+    if (signUpError) {
+      setError(signUpError.message.includes("registered") ? "This email is already registered. Try logging in instead." : signUpError.message);
+      setLoading(false); return;
     }
+
+    // Also keep a record in the legacy students table for backend visibility
+    await supabase.from("students").insert({
+      full_name: form.full_name.trim(), email: form.email.trim(), phone: form.phone.trim(),
+      course_interest: form.course_interest || null, institution: form.institution || null,
+      age_group: form.age_group || null, message: form.message || null,
+    });
+
+    setSuccess(true);
     setLoading(false);
+    setTimeout(() => navigate({ to: "/student/dashboard" }), 1500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
@@ -167,6 +176,18 @@ function StudentRegisterPage() {
                     name="email" type="email" value={form.email} onChange={handleChange} required
                     className="w-full rounded-lg border border-input bg-card pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
                     placeholder="you@example.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-1.5">Password * (min. 6 characters)</label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                  <input
+                    name="password" type="password" value={form.password} onChange={handleChange} required minLength={6}
+                    className="w-full rounded-lg border border-input bg-card pl-10 pr-4 py-2.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                    placeholder="Create a secure password"
                   />
                 </div>
               </div>
