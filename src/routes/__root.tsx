@@ -1,6 +1,7 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { ChatBot } from "@/components/ChatBot";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -77,6 +78,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <ChatBot />
     </>
   );
 }
