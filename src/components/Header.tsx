@@ -70,7 +70,7 @@ export function Header() {
               <h1 className="text-lg font-bold leading-tight text-foreground font-heading">
                 Euspan Solutions
               </h1>
-              <p className="text-xs text-muted-foreground">ICT & Digital Solutions</p>
+              <p className="text-xs text-muted-foreground">ICT & Digital Solutions — Unlocking Digital Opportunities Globally & Reducing Unemployment</p>
             </div>
           </Link>
 
