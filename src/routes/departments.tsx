@@ -61,7 +61,7 @@ function ServicesPage() {
         <div className="relative z-10 text-center px-4">
           <AnimatedSection animation="fade-up">
             <h1 className="font-heading text-4xl font-bold text-primary-foreground sm:text-5xl">Our Services, Products & Trainings</h1>
-            <p className="mt-3 text-primary-foreground/80 text-lg">ICT & Digital Solutions — Unlocking Digital Opportunities Globally & Reducing Unemployment</p>
+            <p className="mt-3 text-primary-foreground/80 text-lg">ICT & Digital Solutions Providers</p>
           </AnimatedSection>
         </div>
       </section>
