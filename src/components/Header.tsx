@@ -48,13 +48,13 @@ export function Header() {
             </a>
           </div>
           <div className="flex items-center gap-3">
-            <a href="#" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+            <a href="https://www.facebook.com/profile.php?id=61576634031946" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="opacity-80 hover:opacity-100 transition-opacity">
               <FacebookIcon className="h-4 w-4" />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="opacity-80 hover:opacity-100 transition-opacity">
               <TwitterIcon className="h-4 w-4" />
             </a>
-            <a href="#" target="_blank" rel="noopener noreferrer" className="opacity-80 hover:opacity-100 transition-opacity">
+            <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="opacity-80 hover:opacity-100 transition-opacity">
               <InstagramIcon className="h-4 w-4" />
             </a>
           </div>
