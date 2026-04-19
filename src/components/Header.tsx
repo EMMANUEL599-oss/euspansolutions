@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import euspanLogo from "@/assets/euspan-logo.jpg";
 import { Phone, Mail, Menu, X, ChevronDown, GraduationCap, Download } from "lucide-react";
-import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
+import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
 
 const serviceLinks = [
   { name: "ICT Consultancy", path: "/departments" },
@@ -56,6 +56,9 @@ export function Header() {
             </a>
             <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="opacity-80 hover:opacity-100 transition-opacity">
               <InstagramIcon className="h-4 w-4" />
+            </a>
+            <a href="https://www.linkedin.com/groups/10122047" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="opacity-80 hover:opacity-100 transition-opacity">
+              <LinkedInIcon className="h-4 w-4" />
             </a>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import euspanLogo from "@/assets/euspan-logo.jpg";
 import { Phone, Mail, MapPin, Smartphone, Download } from "lucide-react";
-import { FacebookIcon, TwitterIcon, InstagramIcon } from "@/components/SocialIcons";
+import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
 
 export function Footer() {
   return (
@@ -86,6 +86,9 @@ export function Footer() {
               </a>
               <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <InstagramIcon className="h-4 w-4" />
+              </a>
+              <a href="https://www.linkedin.com/groups/10122047" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+                <LinkedInIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
