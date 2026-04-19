@@ -84,7 +84,7 @@ function HomePage() {
           </AnimatedSection>
           <AnimatedSection animation="fade-up" delay={400}>
             <p className="mt-4 text-lg text-primary-foreground/90 sm:text-xl">
-              ICT & Digital Solutions — Unlocking Digital Opportunities Globally & Reducing Unemployment
+              ICT & Digital Solutions Providers
             </p>
             <p className="mt-2 text-base text-primary-foreground/70 max-w-2xl mx-auto">
               A Kenyan tech startup tackling unemployment while nurturing tech careers and talents, empowering individuals to succeed in the digital economy.
