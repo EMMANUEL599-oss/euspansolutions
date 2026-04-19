@@ -10,7 +10,7 @@ import {
   Target, Eye, Heart, Star, Lightbulb, Zap,
   ArrowRight, CheckCircle2, Users, GraduationCap,
   Smartphone, Monitor, Briefcase, Wrench, ShoppingCart,
-  Globe, TrendingUp, Award,
+  Globe, TrendingUp, Award, Rocket, Handshake, Laptop, UserCheck,
 } from "lucide-react";
 import { AnimatedSection, StaggerChildren } from "@/hooks/use-scroll-animation";
 
@@ -276,8 +276,50 @@ function HomePage() {
         </div>
       </section>
 
-      {/* Addressing Gaps */}
+      {/* How We Reduce Unemployment */}
       <section className="bg-warm-bg py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <AnimatedSection animation="fade-up" className="text-center mb-12">
+            <p className="text-sm font-semibold uppercase tracking-widest text-primary">Our Agenda</p>
+            <h2 className="mt-2 font-heading text-3xl font-bold text-foreground sm:text-4xl">
+              How We Reduce Unemployment
+            </h2>
+            <p className="mt-3 mx-auto max-w-2xl text-muted-foreground">
+              We tackle unemployment by equipping youth and communities with practical, job-ready digital skills, mentorship, and direct pathways to income — both locally and globally.
+            </p>
+          </AnimatedSection>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <StaggerChildren staggerDelay={120} animation="fade-up">
+              {[
+                { icon: GraduationCap, title: "Job-Ready Digital Training", desc: "Certified, practical courses in software, AI, cybersecurity, digital marketing, and ICT — designed around what employers and clients actually pay for." },
+                { icon: Globe, title: "Freelancing & Online Work", desc: "We train and onboard youth onto global freelancing platforms (Upwork, Fiverr, etc.) so they can earn from anywhere in the world." },
+                { icon: UserCheck, title: "Mentorship & Career Coaching", desc: "One-on-one mentorship for tech talents — guiding them through portfolios, interviews, and real client work until they land opportunities." },
+                { icon: Rocket, title: "Entrepreneurship & Self-Employment", desc: "We help learners launch their own digital businesses, agencies, and tech-based side hustles to create jobs for themselves and others." },
+                { icon: Handshake, title: "Industry & Partner Placements", desc: "Through partnerships with businesses and institutions, we connect trained talents to internships, attachments, and real job openings." },
+                { icon: Laptop, title: "Real Project Experience", desc: "Learners work on real client projects and software builds during training, graduating with proven experience — not just certificates." },
+              ].map((item) => (
+                <div key={item.title} className="rounded-xl border border-border bg-card p-6 hover:shadow-card hover:-translate-y-1 transition-all duration-300">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 mb-4">
+                    <item.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="font-heading text-lg font-semibold text-foreground">{item.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">{item.desc}</p>
+                </div>
+              ))}
+            </StaggerChildren>
+          </div>
+
+          <AnimatedSection animation="fade-up" delay={400} className="mt-10 text-center">
+            <Link to="/programs" className="inline-flex items-center gap-2 rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors">
+              Explore Our Programs <ArrowRight className="h-4 w-4" />
+            </Link>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Addressing Gaps */}
+      <section className="py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="grid gap-12 lg:grid-cols-2 items-center">
             <AnimatedSection animation="fade-left">
