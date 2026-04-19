@@ -47,12 +47,12 @@ export function Footer() {
           <div>
             <h4 className="mb-4 font-heading text-base font-semibold">Services</h4>
             <ul className="space-y-2.5 text-sm">
-              <li className="opacity-80">ICT Consultancy</li>
-              <li className="opacity-80">Software Development</li>
-              <li className="opacity-80">AI Solutions</li>
-              <li className="opacity-80">Digital Training Programs</li>
-              <li className="opacity-80">Cloud Services</li>
-              <li className="opacity-80">Cybersecurity</li>
+              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">ICT Consultancy</Link></li>
+              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Software Development</Link></li>
+              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">AI Solutions</Link></li>
+              <li><Link to="/programs" className="opacity-80 hover:opacity-100 transition-opacity">Digital Training Programs</Link></li>
+              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Cloud Services</Link></li>
+              <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Cybersecurity</Link></li>
             </ul>
           </div>
 
@@ -78,13 +78,13 @@ export function Footer() {
               </li>
             </ul>
             <div className="mt-5 flex gap-3">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=61576634031946" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <FacebookIcon className="h-4 w-4" />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <TwitterIcon className="h-4 w-4" />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+              <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <InstagramIcon className="h-4 w-4" />
               </a>
             </div>
