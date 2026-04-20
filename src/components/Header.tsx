@@ -1,8 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 import euspanLogo from "@/assets/euspan-logo.jpg";
-import { Phone, Mail, Menu, X, ChevronDown, GraduationCap, Download } from "lucide-react";
+import { Phone, Mail, Menu, X, ChevronDown, GraduationCap } from "lucide-react";
 import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon, TikTokIcon } from "@/components/SocialIcons";
+import { BrochureDownloadButton } from "@/components/BrochureDownloadButton";
 
 const serviceLinks = [
   { name: "ICT Consultancy", path: "/departments" },
@@ -128,9 +129,9 @@ export function Header() {
                     </Link>
                   ))}
                   <div className="border-t border-border mt-1 pt-1">
-                    <a href="/euspan-brochure.pdf" download className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-primary font-semibold hover:bg-muted transition-colors">
-                      <Download className="h-3.5 w-3.5" /> Download Brochure
-                    </a>
+                    <BrochureDownloadButton className="w-full flex items-center gap-2 rounded-md px-3 py-2 text-sm text-primary font-semibold hover:bg-muted transition-colors">
+                      Download Brochure
+                    </BrochureDownloadButton>
                   </div>
                 </div>
               )}
@@ -138,6 +139,10 @@ export function Header() {
 
             <Link to="/contact" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-muted">
               Contact Us
+            </Link>
+
+            <Link to="/learn" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-muted">
+              Free LMS
             </Link>
 
             <Link to="/blog" className="px-3 py-2 text-sm font-medium text-foreground hover:text-primary transition-colors rounded-md hover:bg-muted">
@@ -176,6 +181,8 @@ export function Header() {
             <Link to="/departments" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Services & Training</Link>
             <Link to="/programs" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Programs & Digital Club</Link>
             <Link to="/contact" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Contact Us</Link>
+            <Link to="/learn" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Free LMS</Link>
+            <Link to="/impact" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Impact Wall</Link>
             <Link to="/blog" className="block rounded-md px-3 py-2.5 text-sm font-medium text-foreground hover:bg-muted" onClick={() => setMobileOpen(false)}>Blog</Link>
             <Link
               to="/student/login"

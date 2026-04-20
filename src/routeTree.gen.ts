@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SupportRouteImport } from './routes/support'
 import { Route as ProgramsRouteImport } from './routes/programs'
+import { Route as LearnRouteImport } from './routes/learn'
+import { Route as ImpactRouteImport } from './routes/impact'
 import { Route as DepartmentsRouteImport } from './routes/departments'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
@@ -20,6 +22,7 @@ import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StudentRegisterRouteImport } from './routes/student/register'
 import { Route as StudentLoginRouteImport } from './routes/student/login'
+import { Route as LearnSlugRouteImport } from './routes/learn.$slug'
 import { Route as StudentStudentProfileRouteImport } from './routes/_student/student.profile'
 import { Route as StudentStudentNotificationsRouteImport } from './routes/_student/student.notifications'
 import { Route as StudentStudentEarningsRouteImport } from './routes/_student/student.earnings'
@@ -41,6 +44,16 @@ const SupportRoute = SupportRouteImport.update({
 const ProgramsRoute = ProgramsRouteImport.update({
   id: '/programs',
   path: '/programs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LearnRoute = LearnRouteImport.update({
+  id: '/learn',
+  path: '/learn',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ImpactRoute = ImpactRouteImport.update({
+  id: '/impact',
+  path: '/impact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DepartmentsRoute = DepartmentsRouteImport.update({
@@ -85,6 +98,11 @@ const StudentLoginRoute = StudentLoginRouteImport.update({
   id: '/student/login',
   path: '/student/login',
   getParentRoute: () => rootRouteImport,
+} as any)
+const LearnSlugRoute = LearnSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => LearnRoute,
 } as any)
 const StudentStudentProfileRoute = StudentStudentProfileRouteImport.update({
   id: '/student/profile',
@@ -154,8 +172,11 @@ export interface FileRoutesByFullPath {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRoute
+  '/impact': typeof ImpactRoute
+  '/learn': typeof LearnRouteWithChildren
   '/programs': typeof ProgramsRoute
   '/support': typeof SupportRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
   '/admin/certificates': typeof AdminAdminCertificatesRoute
@@ -177,8 +198,11 @@ export interface FileRoutesByTo {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRoute
+  '/impact': typeof ImpactRoute
+  '/learn': typeof LearnRouteWithChildren
   '/programs': typeof ProgramsRoute
   '/support': typeof SupportRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
   '/admin/certificates': typeof AdminAdminCertificatesRoute
@@ -203,8 +227,11 @@ export interface FileRoutesById {
   '/blog': typeof BlogRoute
   '/contact': typeof ContactRoute
   '/departments': typeof DepartmentsRoute
+  '/impact': typeof ImpactRoute
+  '/learn': typeof LearnRouteWithChildren
   '/programs': typeof ProgramsRoute
   '/support': typeof SupportRoute
+  '/learn/$slug': typeof LearnSlugRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
   '/_admin/admin/certificates': typeof AdminAdminCertificatesRoute
@@ -228,8 +255,11 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/departments'
+    | '/impact'
+    | '/learn'
     | '/programs'
     | '/support'
+    | '/learn/$slug'
     | '/student/login'
     | '/student/register'
     | '/admin/certificates'
@@ -251,8 +281,11 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/departments'
+    | '/impact'
+    | '/learn'
     | '/programs'
     | '/support'
+    | '/learn/$slug'
     | '/student/login'
     | '/student/register'
     | '/admin/certificates'
@@ -276,8 +309,11 @@ export interface FileRouteTypes {
     | '/blog'
     | '/contact'
     | '/departments'
+    | '/impact'
+    | '/learn'
     | '/programs'
     | '/support'
+    | '/learn/$slug'
     | '/student/login'
     | '/student/register'
     | '/_admin/admin/certificates'
@@ -302,6 +338,8 @@ export interface RootRouteChildren {
   BlogRoute: typeof BlogRoute
   ContactRoute: typeof ContactRoute
   DepartmentsRoute: typeof DepartmentsRoute
+  ImpactRoute: typeof ImpactRoute
+  LearnRoute: typeof LearnRouteWithChildren
   ProgramsRoute: typeof ProgramsRoute
   SupportRoute: typeof SupportRoute
   StudentLoginRoute: typeof StudentLoginRoute
@@ -322,6 +360,20 @@ declare module '@tanstack/react-router' {
       path: '/programs'
       fullPath: '/programs'
       preLoaderRoute: typeof ProgramsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/learn': {
+      id: '/learn'
+      path: '/learn'
+      fullPath: '/learn'
+      preLoaderRoute: typeof LearnRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/impact': {
+      id: '/impact'
+      path: '/impact'
+      fullPath: '/impact'
+      preLoaderRoute: typeof ImpactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/departments': {
@@ -386,6 +438,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/student/login'
       preLoaderRoute: typeof StudentLoginRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/learn/$slug': {
+      id: '/learn/$slug'
+      path: '/$slug'
+      fullPath: '/learn/$slug'
+      preLoaderRoute: typeof LearnSlugRouteImport
+      parentRoute: typeof LearnRoute
     }
     '/_student/student/profile': {
       id: '/_student/student/profile'
@@ -515,6 +574,16 @@ const StudentRouteChildren: StudentRouteChildren = {
 const StudentRouteWithChildren =
   StudentRoute._addFileChildren(StudentRouteChildren)
 
+interface LearnRouteChildren {
+  LearnSlugRoute: typeof LearnSlugRoute
+}
+
+const LearnRouteChildren: LearnRouteChildren = {
+  LearnSlugRoute: LearnSlugRoute,
+}
+
+const LearnRouteWithChildren = LearnRoute._addFileChildren(LearnRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AdminRoute: AdminRouteWithChildren,
@@ -523,6 +592,8 @@ const rootRouteChildren: RootRouteChildren = {
   BlogRoute: BlogRoute,
   ContactRoute: ContactRoute,
   DepartmentsRoute: DepartmentsRoute,
+  ImpactRoute: ImpactRoute,
+  LearnRoute: LearnRouteWithChildren,
   ProgramsRoute: ProgramsRoute,
   SupportRoute: SupportRoute,
   StudentLoginRoute: StudentLoginRoute,
