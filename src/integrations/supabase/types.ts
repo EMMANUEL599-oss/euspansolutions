@@ -108,6 +108,45 @@ export type Database = {
           },
         ]
       }
+      complaints: {
+        Row: {
+          body: string
+          created_at: string
+          email: string | null
+          full_name: string
+          id: string
+          reposted: boolean
+          status: string
+          subject: string
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          body: string
+          created_at?: string
+          email?: string | null
+          full_name: string
+          id?: string
+          reposted?: boolean
+          status?: string
+          subject: string
+          type: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string
+          created_at?: string
+          email?: string | null
+          full_name?: string
+          id?: string
+          reposted?: boolean
+          status?: string
+          subject?: string
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       earnings: {
         Row: {
           amount: number
@@ -137,6 +176,236 @@ export type Database = {
           user_id?: string
         }
         Relationships: []
+      }
+      lms_certificates: {
+        Row: {
+          certificate_number: string
+          course_title: string
+          enrollment_id: string
+          full_name: string
+          id: string
+          issued_at: string
+          show_on_impact_wall: boolean
+        }
+        Insert: {
+          certificate_number: string
+          course_title: string
+          enrollment_id: string
+          full_name: string
+          id?: string
+          issued_at?: string
+          show_on_impact_wall?: boolean
+        }
+        Update: {
+          certificate_number?: string
+          course_title?: string
+          enrollment_id?: string
+          full_name?: string
+          id?: string
+          issued_at?: string
+          show_on_impact_wall?: boolean
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lms_certificates_enrollment_id_fkey"
+            columns: ["enrollment_id"]
+            isOneToOne: false
+            referencedRelation: "lms_enrollments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lms_courses: {
+        Row: {
+          cover_image: string | null
+          created_at: string
+          description: string
+          id: string
+          is_active: boolean
+          is_free: boolean
+          slug: string
+          title: string
+        }
+        Insert: {
+          cover_image?: string | null
+          created_at?: string
+          description: string
+          id?: string
+          is_active?: boolean
+          is_free?: boolean
+          slug: string
+          title: string
+        }
+        Update: {
+          cover_image?: string | null
+          created_at?: string
+          description?: string
+          id?: string
+          is_active?: boolean
+          is_free?: boolean
+          slug?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      lms_enrollments: {
+        Row: {
+          completed: boolean
+          completed_at: string | null
+          course_id: string
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          progress_percent: number
+          quiz_score: number | null
+          updated_at: string
+        }
+        Insert: {
+          completed?: boolean
+          completed_at?: string | null
+          course_id: string
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          progress_percent?: number
+          quiz_score?: number | null
+          updated_at?: string
+        }
+        Update: {
+          completed?: boolean
+          completed_at?: string | null
+          course_id?: string
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          progress_percent?: number
+          quiz_score?: number | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lms_enrollments_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "lms_courses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lms_lesson_progress: {
+        Row: {
+          completed_at: string
+          enrollment_id: string
+          id: string
+          lesson_id: string
+        }
+        Insert: {
+          completed_at?: string
+          enrollment_id: string
+          id?: string
+          lesson_id: string
+        }
+        Update: {
+          completed_at?: string
+          enrollment_id?: string
+          id?: string
+          lesson_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lms_lesson_progress_enrollment_id_fkey"
+            columns: ["enrollment_id"]
+            isOneToOne: false
+            referencedRelation: "lms_enrollments"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "lms_lesson_progress_lesson_id_fkey"
+            columns: ["lesson_id"]
+            isOneToOne: false
+            referencedRelation: "lms_lessons"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lms_lessons: {
+        Row: {
+          created_at: string
+          id: string
+          image_url: string | null
+          module_id: string
+          notes: string
+          position: number
+          practical_task: string | null
+          title: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          module_id: string
+          notes: string
+          position?: number
+          practical_task?: string | null
+          title: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          module_id?: string
+          notes?: string
+          position?: number
+          practical_task?: string | null
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lms_lessons_module_id_fkey"
+            columns: ["module_id"]
+            isOneToOne: false
+            referencedRelation: "lms_modules"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      lms_modules: {
+        Row: {
+          course_id: string
+          created_at: string
+          description: string | null
+          id: string
+          position: number
+          title: string
+        }
+        Insert: {
+          course_id: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          position?: number
+          title: string
+        }
+        Update: {
+          course_id?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          position?: number
+          title?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "lms_modules_course_id_fkey"
+            columns: ["course_id"]
+            isOneToOne: false
+            referencedRelation: "lms_courses"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       notifications: {
         Row: {
@@ -243,6 +512,57 @@ export type Database = {
           price?: string | null
           slug?: string
           title?: string
+        }
+        Relationships: []
+      }
+      service_requests: {
+        Row: {
+          amount: number | null
+          created_at: string
+          currency: string | null
+          email: string
+          full_name: string
+          id: string
+          item_name: string
+          message: string | null
+          phone: string | null
+          receipt_number: string | null
+          request_type: string
+          status: string
+          updated_at: string
+          user_id: string | null
+        }
+        Insert: {
+          amount?: number | null
+          created_at?: string
+          currency?: string | null
+          email: string
+          full_name: string
+          id?: string
+          item_name: string
+          message?: string | null
+          phone?: string | null
+          receipt_number?: string | null
+          request_type: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          amount?: number | null
+          created_at?: string
+          currency?: string | null
+          email?: string
+          full_name?: string
+          id?: string
+          item_name?: string
+          message?: string | null
+          phone?: string | null
+          receipt_number?: string | null
+          request_type?: string
+          status?: string
+          updated_at?: string
+          user_id?: string | null
         }
         Relationships: []
       }
