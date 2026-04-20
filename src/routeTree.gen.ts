@@ -16,6 +16,7 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as StudentRouteImport } from './routes/_student'
+import { Route as AdminRouteImport } from './routes/_admin'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as StudentRegisterRouteImport } from './routes/student/register'
 import { Route as StudentLoginRouteImport } from './routes/student/login'
@@ -25,6 +26,12 @@ import { Route as StudentStudentEarningsRouteImport } from './routes/_student/st
 import { Route as StudentStudentDashboardRouteImport } from './routes/_student/student.dashboard'
 import { Route as StudentStudentBrowseRouteImport } from './routes/_student/student.browse'
 import { Route as StudentStudentApplyRouteImport } from './routes/_student/student.apply'
+import { Route as AdminAdminStudentsRouteImport } from './routes/_admin/admin.students'
+import { Route as AdminAdminRequestsRouteImport } from './routes/_admin/admin.requests'
+import { Route as AdminAdminLmsRouteImport } from './routes/_admin/admin.lms'
+import { Route as AdminAdminFeedbackRouteImport } from './routes/_admin/admin.feedback'
+import { Route as AdminAdminDashboardRouteImport } from './routes/_admin/admin.dashboard'
+import { Route as AdminAdminCertificatesRouteImport } from './routes/_admin/admin.certificates'
 
 const SupportRoute = SupportRouteImport.update({
   id: '/support',
@@ -58,6 +65,10 @@ const AboutRoute = AboutRouteImport.update({
 } as any)
 const StudentRoute = StudentRouteImport.update({
   id: '/_student',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/_admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -106,6 +117,36 @@ const StudentStudentApplyRoute = StudentStudentApplyRouteImport.update({
   path: '/student/apply',
   getParentRoute: () => StudentRoute,
 } as any)
+const AdminAdminStudentsRoute = AdminAdminStudentsRouteImport.update({
+  id: '/admin/students',
+  path: '/admin/students',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminRequestsRoute = AdminAdminRequestsRouteImport.update({
+  id: '/admin/requests',
+  path: '/admin/requests',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminLmsRoute = AdminAdminLmsRouteImport.update({
+  id: '/admin/lms',
+  path: '/admin/lms',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminFeedbackRoute = AdminAdminFeedbackRouteImport.update({
+  id: '/admin/feedback',
+  path: '/admin/feedback',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminDashboardRoute = AdminAdminDashboardRouteImport.update({
+  id: '/admin/dashboard',
+  path: '/admin/dashboard',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAdminCertificatesRoute = AdminAdminCertificatesRouteImport.update({
+  id: '/admin/certificates',
+  path: '/admin/certificates',
+  getParentRoute: () => AdminRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -117,6 +158,12 @@ export interface FileRoutesByFullPath {
   '/support': typeof SupportRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
+  '/admin/certificates': typeof AdminAdminCertificatesRoute
+  '/admin/dashboard': typeof AdminAdminDashboardRoute
+  '/admin/feedback': typeof AdminAdminFeedbackRoute
+  '/admin/lms': typeof AdminAdminLmsRoute
+  '/admin/requests': typeof AdminAdminRequestsRoute
+  '/admin/students': typeof AdminAdminStudentsRoute
   '/student/apply': typeof StudentStudentApplyRoute
   '/student/browse': typeof StudentStudentBrowseRoute
   '/student/dashboard': typeof StudentStudentDashboardRoute
@@ -134,6 +181,12 @@ export interface FileRoutesByTo {
   '/support': typeof SupportRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
+  '/admin/certificates': typeof AdminAdminCertificatesRoute
+  '/admin/dashboard': typeof AdminAdminDashboardRoute
+  '/admin/feedback': typeof AdminAdminFeedbackRoute
+  '/admin/lms': typeof AdminAdminLmsRoute
+  '/admin/requests': typeof AdminAdminRequestsRoute
+  '/admin/students': typeof AdminAdminStudentsRoute
   '/student/apply': typeof StudentStudentApplyRoute
   '/student/browse': typeof StudentStudentBrowseRoute
   '/student/dashboard': typeof StudentStudentDashboardRoute
@@ -144,6 +197,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_admin': typeof AdminRouteWithChildren
   '/_student': typeof StudentRouteWithChildren
   '/about': typeof AboutRoute
   '/blog': typeof BlogRoute
@@ -153,6 +207,12 @@ export interface FileRoutesById {
   '/support': typeof SupportRoute
   '/student/login': typeof StudentLoginRoute
   '/student/register': typeof StudentRegisterRoute
+  '/_admin/admin/certificates': typeof AdminAdminCertificatesRoute
+  '/_admin/admin/dashboard': typeof AdminAdminDashboardRoute
+  '/_admin/admin/feedback': typeof AdminAdminFeedbackRoute
+  '/_admin/admin/lms': typeof AdminAdminLmsRoute
+  '/_admin/admin/requests': typeof AdminAdminRequestsRoute
+  '/_admin/admin/students': typeof AdminAdminStudentsRoute
   '/_student/student/apply': typeof StudentStudentApplyRoute
   '/_student/student/browse': typeof StudentStudentBrowseRoute
   '/_student/student/dashboard': typeof StudentStudentDashboardRoute
@@ -172,6 +232,12 @@ export interface FileRouteTypes {
     | '/support'
     | '/student/login'
     | '/student/register'
+    | '/admin/certificates'
+    | '/admin/dashboard'
+    | '/admin/feedback'
+    | '/admin/lms'
+    | '/admin/requests'
+    | '/admin/students'
     | '/student/apply'
     | '/student/browse'
     | '/student/dashboard'
@@ -189,6 +255,12 @@ export interface FileRouteTypes {
     | '/support'
     | '/student/login'
     | '/student/register'
+    | '/admin/certificates'
+    | '/admin/dashboard'
+    | '/admin/feedback'
+    | '/admin/lms'
+    | '/admin/requests'
+    | '/admin/students'
     | '/student/apply'
     | '/student/browse'
     | '/student/dashboard'
@@ -198,6 +270,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/_admin'
     | '/_student'
     | '/about'
     | '/blog'
@@ -207,6 +280,12 @@ export interface FileRouteTypes {
     | '/support'
     | '/student/login'
     | '/student/register'
+    | '/_admin/admin/certificates'
+    | '/_admin/admin/dashboard'
+    | '/_admin/admin/feedback'
+    | '/_admin/admin/lms'
+    | '/_admin/admin/requests'
+    | '/_admin/admin/students'
     | '/_student/student/apply'
     | '/_student/student/browse'
     | '/_student/student/dashboard'
@@ -217,6 +296,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
   StudentRoute: typeof StudentRouteWithChildren
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRoute
@@ -277,6 +357,13 @@ declare module '@tanstack/react-router' {
       path: ''
       fullPath: '/'
       preLoaderRoute: typeof StudentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_admin': {
+      id: '/_admin'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AdminRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -342,8 +429,70 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudentStudentApplyRouteImport
       parentRoute: typeof StudentRoute
     }
+    '/_admin/admin/students': {
+      id: '/_admin/admin/students'
+      path: '/admin/students'
+      fullPath: '/admin/students'
+      preLoaderRoute: typeof AdminAdminStudentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/requests': {
+      id: '/_admin/admin/requests'
+      path: '/admin/requests'
+      fullPath: '/admin/requests'
+      preLoaderRoute: typeof AdminAdminRequestsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/lms': {
+      id: '/_admin/admin/lms'
+      path: '/admin/lms'
+      fullPath: '/admin/lms'
+      preLoaderRoute: typeof AdminAdminLmsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/feedback': {
+      id: '/_admin/admin/feedback'
+      path: '/admin/feedback'
+      fullPath: '/admin/feedback'
+      preLoaderRoute: typeof AdminAdminFeedbackRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/dashboard': {
+      id: '/_admin/admin/dashboard'
+      path: '/admin/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminAdminDashboardRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/_admin/admin/certificates': {
+      id: '/_admin/admin/certificates'
+      path: '/admin/certificates'
+      fullPath: '/admin/certificates'
+      preLoaderRoute: typeof AdminAdminCertificatesRouteImport
+      parentRoute: typeof AdminRoute
+    }
   }
 }
+
+interface AdminRouteChildren {
+  AdminAdminCertificatesRoute: typeof AdminAdminCertificatesRoute
+  AdminAdminDashboardRoute: typeof AdminAdminDashboardRoute
+  AdminAdminFeedbackRoute: typeof AdminAdminFeedbackRoute
+  AdminAdminLmsRoute: typeof AdminAdminLmsRoute
+  AdminAdminRequestsRoute: typeof AdminAdminRequestsRoute
+  AdminAdminStudentsRoute: typeof AdminAdminStudentsRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAdminCertificatesRoute: AdminAdminCertificatesRoute,
+  AdminAdminDashboardRoute: AdminAdminDashboardRoute,
+  AdminAdminFeedbackRoute: AdminAdminFeedbackRoute,
+  AdminAdminLmsRoute: AdminAdminLmsRoute,
+  AdminAdminRequestsRoute: AdminAdminRequestsRoute,
+  AdminAdminStudentsRoute: AdminAdminStudentsRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
 
 interface StudentRouteChildren {
   StudentStudentApplyRoute: typeof StudentStudentApplyRoute
@@ -368,6 +517,7 @@ const StudentRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
   StudentRoute: StudentRouteWithChildren,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRoute,
