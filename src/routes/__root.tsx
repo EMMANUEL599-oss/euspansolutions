@@ -2,6 +2,7 @@ import { Outlet, Link, createRootRoute, HeadContent, Scripts, useLocation } from
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ChatBot } from "@/components/ChatBot";
+import { FloatingActions } from "@/components/FloatingActions";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -74,8 +75,8 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const location = useLocation();
-  // Hide marketing chrome on student portal & auth pages — those have their own layout
-  const isPortal = location.pathname.startsWith("/student");
+  // Hide marketing chrome on student/admin portal & auth pages — those have their own layout
+  const isPortal = location.pathname.startsWith("/student") || location.pathname.startsWith("/admin");
   if (isPortal) {
     return (
       <>
@@ -91,6 +92,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <FloatingActions />
       <ChatBot />
     </>
   );

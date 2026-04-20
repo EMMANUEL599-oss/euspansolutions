@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import euspanLogo from "@/assets/euspan-logo.jpg";
-import { Phone, Mail, MapPin, Smartphone, Download } from "lucide-react";
-import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon } from "@/components/SocialIcons";
+import { Phone, Mail, MapPin, Smartphone } from "lucide-react";
+import { FacebookIcon, TwitterIcon, InstagramIcon, LinkedInIcon, TikTokIcon } from "@/components/SocialIcons";
+import { BrochureDownloadButton } from "@/components/BrochureDownloadButton";
 
 export function Footer() {
   return (
@@ -19,13 +20,9 @@ export function Footer() {
             <p className="text-sm leading-relaxed opacity-80">
               A Kenyan tech startup providing ICT and digital solutions, including technology services, products, and certified digital training programs — empowering individuals to succeed in the digital economy.
             </p>
-            <a
-              href="/euspan-brochure.pdf"
-              download
-              className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary-foreground/10 px-4 py-2 text-xs font-semibold hover:bg-primary-foreground/20 transition-colors"
-            >
-              <Download className="h-3.5 w-3.5" /> Download Brochure
-            </a>
+            <BrochureDownloadButton className="mt-4 inline-flex items-center gap-2 rounded-lg bg-primary-foreground/10 px-4 py-2 text-xs font-semibold hover:bg-primary-foreground/20 transition-colors">
+              Download Brochure
+            </BrochureDownloadButton>
           </div>
 
           {/* Quick Links */}
@@ -36,6 +33,8 @@ export function Footer() {
               <li><Link to="/about" className="opacity-80 hover:opacity-100 transition-opacity">About Us</Link></li>
               <li><Link to="/departments" className="opacity-80 hover:opacity-100 transition-opacity">Services & Training</Link></li>
               <li><Link to="/programs" className="opacity-80 hover:opacity-100 transition-opacity">Programs & Digital Club</Link></li>
+              <li><Link to="/learn" className="opacity-80 hover:opacity-100 transition-opacity">Free LMS (Pro Bono)</Link></li>
+              <li><Link to="/impact" className="opacity-80 hover:opacity-100 transition-opacity">Impact Wall</Link></li>
               <li><Link to="/student/register" className="opacity-80 hover:opacity-100 transition-opacity">Student Registration</Link></li>
               <li><Link to="/blog" className="opacity-80 hover:opacity-100 transition-opacity">Blog</Link></li>
               <li><Link to="/contact" className="opacity-80 hover:opacity-100 transition-opacity">Contact Us</Link></li>
@@ -89,6 +88,9 @@ export function Footer() {
               </a>
               <a href="https://www.linkedin.com/groups/10122047" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
                 <LinkedInIcon className="h-4 w-4" />
+              </a>
+              <a href="https://www.tiktok.com/@euspan.solutions" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors">
+                <TikTokIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
